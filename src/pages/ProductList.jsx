@@ -12,7 +12,13 @@ function ProductList() {
       <h1>Product List</h1>
       <div className='product-list'>
         <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
       </div>
+      <button>Load more</button>
     </>
   );
 }

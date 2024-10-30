@@ -1,3 +1,21 @@
+.product-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+}
+
 .product-card{
     border: 1px solid black;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.product-card img{
+    width: 100%;
+    
+}
+
+.product-details{
+    padding: 10px;
+
 }
