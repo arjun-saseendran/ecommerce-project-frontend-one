@@ -7,7 +7,7 @@ function Root() {
     <div className='container'>
     <header>
         <h1>Header</h1>
-        <Link to='/login'>Loign</Link>
+        <Link to='/login'>Login</Link>
     </header>
     <main>
         <Outlet/>
