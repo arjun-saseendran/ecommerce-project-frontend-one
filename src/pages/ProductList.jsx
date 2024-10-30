@@ -12,19 +12,19 @@ function ProductList() {
 
       <h1>Product List</h1>
       <div className="product-list">
-        <Link to={"/product-details/1"}>
+        <Link className="link-style" to={"/product-details/1"}>
           <ProductCard />
         </Link>
-        <Link to={"/product-details/2"}>
+        <Link className="link-style" to={"/product-details/2"}>
           <ProductCard />
         </Link>
-        <Link to={"/product-details/3"}>
+        <Link className="link-style" to={"/product-details/3"}>
           <ProductCard />
         </Link>
-        <Link to={"/product-details/4"}>
+        <Link className="link-style" to={"/product-details/4"}>
           <ProductCard />
         </Link>
-        <Link to={"/product-details/5"}>
+        <Link className="link-style" to={"/product-details/5"}>
           <ProductCard />
         </Link>
       </div>

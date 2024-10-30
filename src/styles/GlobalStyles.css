@@ -22,11 +22,17 @@ body{
     border: 1px solid black;
     border-radius: 8px;
     overflow: hidden;
+    text-decoration: none;
 }
 
 .product-card img{
     width: 100%;
     
+}
+
+.link-style{
+    text-decoration: none;
+    color: black
 }
 
 .product-details{
@@ -111,4 +117,10 @@ body{
 
     margin-bottom: 10px;
 
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

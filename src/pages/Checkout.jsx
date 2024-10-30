@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Checkout() {
   return (
@@ -11,7 +12,7 @@ function Checkout() {
         <input className="input2" type="text" placeholder="State" />
         <input className="input2" type="text" placeholder="Country" />
         <input className="input2" type="text" placeholder="Pincode" />
-        <input className="input2 btn2" type="submit" value="Confirm" />
+        <Link className="btn2" to="/orders">Confirm</Link>
       </form>
     </>
   );

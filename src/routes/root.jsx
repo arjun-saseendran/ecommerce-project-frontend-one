@@ -1,11 +1,13 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, Link } from 'react-router-dom'
+
 
 function Root() {
   return (
     <div className='container'>
     <header>
         <h1>Header</h1>
+        <Link to='/login'>Loign</Link>
     </header>
     <main>
         <Outlet/>
