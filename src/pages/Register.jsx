@@ -15,7 +15,7 @@ function Register() {
           Agree the terms and conditions
           <input type="checkbox" />
         </div>
-        <input className="input2 btn2" type="submit" value="Confirm" />
+        <input className="input2 btn2" type="submit" value="Register" />
       </form>
       <p>
         Already have an account
