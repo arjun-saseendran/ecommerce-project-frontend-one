@@ -19,3 +19,41 @@
     padding: 10px;
 
 }
+
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.loadmore-btn{
+    margin-top: 20px;
+}
+
+.btn1{
+    height: 30px;
+    padding: 0px 15px;
+    border: 1px solid green;
+    background-color: green;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.btn2{
+    width: 100%;
+    background-color: orange;
+    height: 35px;
+    border-radius: 5px;
+    border: 0px;
+}
+
+.input1{
+    height: 30px;
+    padding: 0px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+    border: 1px solid gray;
+}

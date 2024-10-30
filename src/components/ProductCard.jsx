@@ -11,7 +11,7 @@ function ProductCard() {
         <div className='product-details'>
           <p className="product-title">iPhone 13(128) Green</p>
           <p className="product-price">₹42999</p>
-          <button>Add to cart</button>
+          <button className='btn2'>Add to cart</button>
         </div>
       </div>
     </>
