@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function ProductDetails() {
   return (
@@ -11,7 +12,9 @@ function ProductDetails() {
         <div>
           <p className="product-title">iPhone 13(128) Green</p>
           <p className="product-price">₹42999</p>
-          <button className="btn2">Add to cart</button>
+          <Link to={"/cart"}>
+            <button className="btn2">Add to cart</button>
+          </Link>
         </div>
       </div>
     </>

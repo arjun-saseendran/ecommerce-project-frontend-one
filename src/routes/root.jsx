@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 
 function Root() {
   return (
-    <>
+    <div className='container'>
     <header>
         <h1>Header</h1>
     </header>
@@ -13,7 +13,7 @@ function Root() {
     <footer>
         <h1>Footer</h1>
     </footer>
-    </>
+    </div>
   )
 }
 
