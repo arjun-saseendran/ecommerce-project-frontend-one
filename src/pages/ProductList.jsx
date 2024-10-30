@@ -1,4 +1,5 @@
 import React from 'react'
+import ProductCard from '../components/ProductCard'
 
 function ProductList() {
   return (
@@ -9,6 +10,7 @@ function ProductList() {
 </form>
 
 <h1>Product List</h1>
+<ProductCard/>
 
     </>
   )
