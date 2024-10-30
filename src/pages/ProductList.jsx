@@ -1,25 +1,35 @@
 import React from 'react'
 import ProductCard from '../components/ProductCard'
+import { Link } from 'react-router-dom';
 
 function ProductList() {
   return (
     <>
-      <form className='text-right'>
-        <input className='input1' type="text" placeholder="Search" />
-        <input className='btn1' type="submit" value="Search" />
+      <form className="text-right">
+        <input className="input1" type="text" placeholder="Search" />
+        <input className="btn1" type="submit" value="Search" />
       </form>
 
       <h1>Product List</h1>
       <div className="product-list">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        <Link to={"/product-details/1"}>
+          <ProductCard />
+        </Link>
+        <Link to={"/product-details/2"}>
+          <ProductCard />
+        </Link>
+        <Link to={"/product-details/3"}>
+          <ProductCard />
+        </Link>
+        <Link to={"/product-details/4"}>
+          <ProductCard />
+        </Link>
+        <Link to={"/product-details/5"}>
+          <ProductCard />
+        </Link>
       </div>
-      <div className='text-center'>
-        <button className='loadmore-btn'>Load more</button>
+      <div className="text-center">
+        <button className="loadmore-btn">Load more</button>
       </div>
     </>
   );

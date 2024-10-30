@@ -1,6 +1,10 @@
 import React from 'react'
 
 function ProductCard() {
+
+  const addToCart = () => {
+    alert('Added')
+  }
   return (
     <>
       <div className="product-card">
@@ -11,7 +15,7 @@ function ProductCard() {
         <div className='product-details'>
           <p className="product-title">iPhone 13(128) Green</p>
           <p className="product-price">₹42999</p>
-          <button className='btn2'>Add to cart</button>
+          <button onClick={addToCart} className='btn2'>Add to cart</button>
         </div>
       </div>
     </>

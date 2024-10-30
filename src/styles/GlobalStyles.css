@@ -29,7 +29,14 @@
 }
 
 .loadmore-btn{
+    height: 30px;
+    padding: 0px 15px;
     margin-top: 20px;
+    background-color: blue;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid blue;
 }
 
 .btn1{
