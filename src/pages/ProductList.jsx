@@ -1,8 +1,17 @@
-import React from 'react'
-import ProductCard from '../components/ProductCard'
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import ProductCard from "../components/ProductCard";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 function ProductList() {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/product")
+      .then((res) => setProducts(res.data))
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <>
       <form className="text-right">
@@ -12,21 +21,18 @@ function ProductList() {
 
       <h1>Product List</h1>
       <div className="product-list">
-        <Link className="link-style" to={"/product-details/1"}>
-          <ProductCard />
-        </Link>
-        <Link className="link-style" to={"/product-details/2"}>
-          <ProductCard />
-        </Link>
-        <Link className="link-style" to={"/product-details/3"}>
-          <ProductCard />
-        </Link>
-        <Link className="link-style" to={"/product-details/4"}>
-          <ProductCard />
-        </Link>
-        <Link className="link-style" to={"/product-details/5"}>
-          <ProductCard />
-        </Link>
+        {products.map((product) => {
+          return (
+            <div key={product._id}>
+              <Link
+                className="link-style"
+                to={`/product-details/${product._id}`}
+              >
+                <ProductCard product={product} />
+              </Link>
+            </div>
+          );
+        })}
       </div>
       <div className="text-center">
         <button className="loadmore-btn">Load more</button>
@@ -35,4 +41,4 @@ function ProductList() {
   );
 }
 
-export default ProductList
+export default ProductList;
