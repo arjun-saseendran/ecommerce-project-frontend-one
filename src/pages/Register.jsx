@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Register() {
   const [user, setUser] = useState({});
-
+  const navigate = useNavigate();
   const handleInput = (e, field) => {
     const newUser = { ...user };
     newUser[field] = e.target.value;
@@ -15,7 +15,7 @@ function Register() {
     e.preventDefault();
     axios
       .post("http://localhost:4000/user/signup", { user })
-      .then((res) => console.log(res))
+      .then((res) => navigate("/Login"))
       .catch((error) => console.log(error));
   };
 
