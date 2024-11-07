@@ -9,7 +9,10 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/user/login", { user })
+      .post(
+        "https://ecommerce-project-frontend-one-u6t4.vercel.app/user/login",
+        { user }
+      )
       .then((response) => navigate("/"))
       .catch((error) => console.log(error));
   };

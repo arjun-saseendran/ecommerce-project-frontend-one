@@ -14,7 +14,10 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/user/signup", { user })
+      .post(
+        "https://ecommerce-project-frontend-one-u6t4.vercel.app/user/signup",
+        { user }
+      )
       .then((res) => navigate("/Login"))
       .catch((error) => console.log(error));
   };

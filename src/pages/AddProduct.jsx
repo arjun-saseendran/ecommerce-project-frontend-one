@@ -15,7 +15,9 @@ function AddProduct() {
     e.preventDefault();
 
     axios
-      .post("http://localhost:4000/product", { product })
+      .post("https://ecommerce-project-frontend-one-u6t4.vercel.app/product", {
+        product,
+      })
       .then((res) => console.log(res))
       .catch((error) => console.log(error));
   };

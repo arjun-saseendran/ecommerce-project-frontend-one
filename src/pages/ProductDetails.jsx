@@ -7,7 +7,9 @@ function ProductDetails() {
   const { id } = useParams();
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/product/details/${id}`)
+      .get(
+        `https://ecommerce-project-frontend-one-u6t4.vercel.app/product/details/${id}`
+      )
       .then((res) => setProduct(res.data));
   });
   return (
