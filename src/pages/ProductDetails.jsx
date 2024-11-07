@@ -1,18 +1,23 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function ProductDetails() {
+  const [product, setProduct] = useState({});
+  const { id } = useParams();
+  useEffect(() => {
+    axios
+      .get(`http://localhost:4000/product/details/${id}`)
+      .then((res) => setProduct(res.data));
+  });
   return (
     <>
       <div className="product-card">
-        <img
-          src="https://rukminim2.flixcart.com/image/850/1000/l0igvww0/mobile/r/q/m/-original-imagca5ajerqpfjy.jpeg?q=20&crop=false"
-          alt="iphone13-mobile-phone"
-        />
+        <img src={product.image} />
         <div>
-          <p className="product-title">iPhone 13(128) Green</p>
-          <p className="product-price">₹42999</p>
+          <p className="product-title">{product.title}</p>
+          <p className="product-title">{product.description}</p>
+          <p className="product-price">₹{product.price}</p>
           <Link to={"/cart"}>
             <button className="btn2">Add to cart</button>
           </Link>

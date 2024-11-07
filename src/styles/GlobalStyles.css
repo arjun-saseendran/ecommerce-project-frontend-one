@@ -23,6 +23,7 @@ body {
   overflow: hidden;
   text-decoration: none;
   overflow: hidden;
+  padding: 10px;
 }
 
 .product-card img {
