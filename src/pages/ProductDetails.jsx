@@ -8,7 +8,7 @@ function ProductDetails() {
   useEffect(() => {
     axios
       .get(
-        `https://ecommerce-project-frontend-one-u6t4.vercel.app/product/details/${id}`
+        `https://ecommerce-project-backend-one.vercel.apps/product/details/${id}`
       )
       .then((res) => setProduct(res.data));
   });
