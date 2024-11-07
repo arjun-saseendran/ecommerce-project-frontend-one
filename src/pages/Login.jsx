@@ -1,17 +1,41 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
+  const [user, setUser] = useState({});
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    axios
+      .post("http://localhost:4000/user/login", { user })
+      .then((response) => navigate("/"))
+      .catch((error) => console.log(error));
   };
+
+  const handleInput = (e, field) => {
+    const loginUser = { ...user };
+    loginUser[field] = e.target.value;
+    setUser(loginUser);
+  };
+
   return (
     <>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <input className="input2" type="text" placeholder="Username" />
-        <input className="input2" type="text" placeholder="Email" />
-        <input className="input2" type="text" placeholder="Password" />
+        <input
+          className="input2"
+          type="text"
+          placeholder="Email"
+          onChange={(e) => handleInput(e, "email")}
+        />
+        <input
+          className="input2"
+          type="text"
+          placeholder="Password"
+          onChange={(e) => handleInput(e, "password")}
+        />
         <input className="input2 btn2" type="submit" value="Login" />
       </form>
       <p>
