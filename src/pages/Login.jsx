@@ -12,7 +12,10 @@ function Login() {
       .post("https://ecommerce-project-backend-one.vercel.app/user/login", {
         user,
       })
-      .then((response) => navigate("/"))
+      .then((response) => {
+        localStorage.setItem("token", response.user.token);
+        navigate("/");
+      })
       .catch((error) => console.log(error));
   };
 
