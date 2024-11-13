@@ -9,11 +9,9 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://ecommerce-project-backend-one.vercel.app/user/login", {
-        user,
-      })
+      .post("https://ecommerce-project-backend-one.vercel.app/user/login", user)
       .then((response) => {
-        localStorage.setItem("token", response.user.token);
+        localStorage.setItem("token", response.data.token);
         navigate("/");
       })
       .catch((error) => console.log(error));
