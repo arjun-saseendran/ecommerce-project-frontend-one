@@ -1,6 +1,24 @@
 import React from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 function ProductCard({ product }) {
+  const navigate = useNavigate();
+  const addToCart = () => {
+    alert("Product added");
+    const token = localStorage.getItem("token");
+    const config = { headers: { Authorization: token } };
+    axios
+      .post(
+        "https://ecommerce-project-backend-one.vercel.app/cart",
+        {
+          product: product._id,
+          quantity: 1,
+        },
+        config
+      )
+      .then((res) => alert("Product added to cart"));
+  };
   return (
     <>
       <div className="product-card">
