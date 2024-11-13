@@ -30,7 +30,9 @@ function ProductCard({ product }) {
       <div className="product-card">
         <img src={product.image} alt="iphone13-mobile-phone" />
         <div className="product-details">
-          <p className="product-title">{product.title}</p>
+          <Link to={`/product-details/${product._id}`}>
+            <p className="product-title">{product.title}</p>
+          </Link>
           <p className="product-title">{product.description}</p>
           <p className="product-price">₹{product.price}</p>
 

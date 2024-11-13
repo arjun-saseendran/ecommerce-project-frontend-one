@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 function ProductList() {
@@ -24,12 +23,7 @@ function ProductList() {
         {products.map((product) => {
           return (
             <div key={product._id}>
-              <Link
-                className="link-style"
-                to={`/product-details/${product._id}`}
-              >
-                <ProductCard product={product} />
-              </Link>
+              <ProductCard product={product} />
             </div>
           );
         })}
