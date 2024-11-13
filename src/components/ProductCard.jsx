@@ -17,9 +17,10 @@ function ProductCard({ product }) {
         },
         config
       )
-      .then((res) => alert("Product added to cart"))
+      .then((res) => alert("Product added to cart "))
       .catch((error) => {
-        alert(error.response.data.message);
+        console.log(error);
+
         if (error.response.status === 401) {
           navigate("/login");
         }

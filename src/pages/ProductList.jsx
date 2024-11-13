@@ -21,11 +21,7 @@ function ProductList() {
       <h1>Product List</h1>
       <div className="product-list">
         {products.map((product) => {
-          return (
-            <div key={product._id}>
-              <ProductCard product={product} />
-            </div>
-          );
+          return <ProductCard product={product} key={product._id} />;
         })}
       </div>
       <div className="text-center">
