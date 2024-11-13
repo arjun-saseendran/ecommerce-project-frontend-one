@@ -5,20 +5,27 @@ import { Link, useNavigate } from "react-router-dom";
 function Register() {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
-  const handleInput = (e, field) => {
-    const newUser = { ...user };
-    newUser[field] = e.target.value;
-    setUser(newUser);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://ecommerce-project-backend-one.vercel.app/user/signup", {
-        user,
+      .post(
+        "https://ecommerce-project-backend-one.vercel.app/user/signup",
+        user
+      )
+      .then((res) => {
+        alert("Registered successfully");
+        navigate("/Login");
       })
-      .then((res) => navigate("/Login"))
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        alert("Something went wrong. Try again!");
+      });
+  };
+
+  const handleInput = (e, field) => {
+    const newUser = { ...user };
+    newUser[field] = e.target.value;
+    setUser(newUser);
   };
 
   return (
