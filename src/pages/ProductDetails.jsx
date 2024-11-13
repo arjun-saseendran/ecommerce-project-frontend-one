@@ -11,9 +11,7 @@ function ProductDetails() {
         `https://ecommerce-project-frontend-one.vercel.app/product/details/${id}`
       )
       .then((res) => {
-        let viewProduct = res.data;
-        viewProduct = { ...product };
-        setProduct(viewProduct);
+        setProduct(res.data);
       });
   });
   return (
