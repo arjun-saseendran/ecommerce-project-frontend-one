@@ -17,7 +17,13 @@ function ProductCard({ product }) {
         },
         config
       )
-      .then((res) => alert("Product added to cart"));
+      .then((res) => alert("Product added to cart"))
+      .catch((error) => {
+        alert(error.response.data.message);
+        if (error.response.status === 401) {
+          navigate("/login");
+        }
+      });
   };
   return (
     <>
@@ -28,7 +34,9 @@ function ProductCard({ product }) {
           <p className="product-title">{product.description}</p>
           <p className="product-price">₹{product.price}</p>
 
-          <button className="btn2">Add to cart</button>
+          <button className="btn2" onClick={addToCart}>
+            Add to cart
+          </button>
         </div>
       </div>
     </>
