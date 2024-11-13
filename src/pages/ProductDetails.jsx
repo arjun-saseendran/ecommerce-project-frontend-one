@@ -10,7 +10,11 @@ function ProductDetails() {
       .get(
         `https://ecommerce-project-backend-one.vercel.apps/product/details/${id}`
       )
-      .then((res) => setProduct(res.data));
+      .then((res) => {
+        console.log(res.data);
+
+        setProduct(res.data);
+      });
   });
   return (
     <>
