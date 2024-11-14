@@ -4,6 +4,8 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #373a40;
+  color: #eeeeee;
 }
 
 .container {
