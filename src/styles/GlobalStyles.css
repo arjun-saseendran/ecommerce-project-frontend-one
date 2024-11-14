@@ -34,6 +34,9 @@ body {
   height: 200px;
   padding: 10px;
 }
+.product-title {
+  color: #eeeeee;
+}
 
 .link-style {
   text-decoration: none;
