@@ -4,7 +4,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #373a40;
+  background-color: #000000;
   color: #eeeeee;
   text-decoration: none;
 }
@@ -34,8 +34,6 @@ body {
   object-fit: contain;
   height: 200px;
   padding: 10px;
-  border-radius: 5px;
-  border: 1px solid black;
 }
 .product-title {
   color: #eeeeee;
