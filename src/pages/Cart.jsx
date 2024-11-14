@@ -1,7 +1,17 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Cart() {
+  const [cartItems, setCartItems] = useState([])
+  const getCartData = () => {
+    const token = localStorage.getItem("token")
+    const config = { headers: {Authorization: token} }
+    axios.get("https://ecommerce-project-backend-one.vercel.app/cart", config).then(res => {
+      setCartItems(res.data.cartItems)
+    }).catch(error => console.log(error.response)
+    )
+  }
   return (
     <>
       <h1>Cart</h1>
