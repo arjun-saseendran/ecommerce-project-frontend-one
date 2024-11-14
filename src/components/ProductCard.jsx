@@ -34,7 +34,7 @@ function ProductCard({ product }) {
           <Link to={`/product-details/${product._id}`} className="link-style">
             <p className="product-title">{product.title}</p>
           </Link>
-          <p className="product-title">{product.description}</p>
+          <p className="product-description">{product.description}</p>
           <p className="product-price">₹{product.price}</p>
 
           <button className="btn2" onClick={addToCart}>
