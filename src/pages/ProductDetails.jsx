@@ -15,7 +15,7 @@ function ProductDetails() {
         console.log(res.data);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [productId]);
   return (
     <>
       <div className="product-card">
