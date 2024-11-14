@@ -6,7 +6,7 @@ function Root() {
     <div className="container">
       <header>
         <h1>Header</h1>
-        <Link to="/login" style={{ textDecoration: "none" }}>
+        <Link to="/login" style={{ textDecoration: "none", color: "#eeeeee" }}>
           Login
         </Link>
       </header>
