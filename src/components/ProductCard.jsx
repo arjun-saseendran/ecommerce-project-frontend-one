@@ -13,7 +13,7 @@ function ProductCard({ product }) {
         "https://ecommerce-project-backend-one.vercel.app/cart",
         {
           product: product._id,
-          quantity: 1,
+          quantity: 1
         },
         config
       )

@@ -35,10 +35,10 @@ function Cart() {
         config
       )
       .then(() => {
-        let tempCartItem = [...cartItems]
-        tempCartItem[index].quantity = quantity
-        setCartItems(tempCartItem)
-        getCartData()
+        let tempCartItem = [...cartItems];
+        tempCartItem[index].quantity = quantity;
+        setCartItems(tempCartItem);
+        getCartData();
       })
       .catch((error) => console.log(error.response));
   };
@@ -46,16 +46,19 @@ function Cart() {
   // Function to calculate the total price
   const calculateTotalPrice = () => {
     return cartItems.reduce(
-      (accumulator, cartItem) => accumulator + cartItem.product.price * cartItem.quantity,
+      (accumulator, cartItem) =>
+        accumulator + cartItem.product.price * cartItem.quantity,
       0
     );
   };
 
-
-  const  cartTotal = () => {
-    return cartItems.reduce((accumulator, cartItem)=> accumulator + cartItem.product.price * cartItem.quantity,0 )
-
-  }
+  const cartTotal = () => {
+    return cartItems.reduce(
+      (accumulator, cartItem) =>
+        accumulator + cartItem.product.price * cartItem.quantity,
+      0
+    );
+  };
 
   return (
     <>
@@ -65,7 +68,9 @@ function Cart() {
           <li className="cart-item">
             <img src={cartItem.product.image} width="100px" />
             <p className="product-title">{cartItem.product.title}</p>
-            <p className="cart-product-description">{cartItem.product.description}</p>
+            <p className="cart-product-description">
+              {cartItem.product.description}
+            </p>
             <p className="product-price">₹{cartItem.product.price}</p>
             <div>
               <button
@@ -98,8 +103,7 @@ function Cart() {
           </li>
         ))}
       </ul>
-      <p className="text-right">Total price: ₹{cartTotal()}
-</p>
+      <p className="text-right">Total price: ₹{cartTotal()}</p>
       <Link className="btn2" to="/checkout">
         Checkout
       </Link>
