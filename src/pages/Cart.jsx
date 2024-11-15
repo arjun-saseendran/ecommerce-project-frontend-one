@@ -77,7 +77,7 @@ function Cart() {
               </button>
             </div>
             <p className="product-total">
-              ${cartItem.price * cartItem.quantity}
+              ${cartItem.product.price * cartItem.quantity}
             </p>
           </li>
         ))}
