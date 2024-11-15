@@ -5,8 +5,7 @@ import { Link, useParams } from "react-router-dom";
 function ProductDetails() {
   const [product, setProduct] = useState({});
   const { id } = useParams();
-  
-  
+
   useEffect(() => {
     axios
       .get(
@@ -14,10 +13,10 @@ function ProductDetails() {
       )
       .then((res) => {
         setProduct(res.data);
-        console.log(res.data);
+        console.log(res.data.product);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [id]);
   return (
     <>
       <div className="product-card">
