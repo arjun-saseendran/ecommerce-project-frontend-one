@@ -66,7 +66,7 @@ function Cart() {
             <img src={cartItem.product.image} width="100px" />
             <p className="product-title">{cartItem.product.title}</p>
             <p className="cart-product-description">{cartItem.product.description}</p>
-            <p className="product-price">{cartItem.product.price}</p>
+            <p className="product-price">₹{cartItem.product.price}</p>
             <div>
               <button
                 onClick={() => {
