@@ -42,6 +42,21 @@ function Cart() {
       })
       .catch((error) => console.log(error.response));
   };
+
+  // Function to calculate the total price
+  const calculateTotalPrice = () => {
+    return cartItems.reduce(
+      (accumulator, cartItem) => accumulator + cartItem.product.price * cartItem.quantity,
+      0
+    );
+  };
+
+
+  const  cartTotal = () => {
+    return cartItems.reduce((accumulator, cartItem)=> accumulator + cartItem.product.price * cartItem.quantity,0 )
+
+  }
+
   return (
     <>
       <h1>Cart</h1>
@@ -83,7 +98,8 @@ function Cart() {
           </li>
         ))}
       </ul>
-      <p className="text-right">Total price: ₹42999</p>
+      <p className="text-right">Total price: ₹{cartTotal()}
+</p>
       <Link className="btn2" to="/checkout">
         Checkout
       </Link>
