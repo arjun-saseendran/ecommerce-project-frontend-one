@@ -38,6 +38,7 @@ function Cart() {
         let tempCartItem = [...cartItems]
         tempCartItem[index].quantity = quantity
         setCartItems(tempCartItem)
+        getCartData()
       })
       .catch((error) => console.log(error.response));
   };
