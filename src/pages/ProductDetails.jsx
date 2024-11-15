@@ -4,18 +4,18 @@ import { Link, useParams } from "react-router-dom";
 
 function ProductDetails() {
   const [product, setProduct] = useState({});
-  const { productId } = useParams();
+  const { id } = useParams();
   useEffect(() => {
     axios
       .get(
-        `https://ecommerce-project-frontend-one.vercel.app/product/details/${productId}`
+        `https://ecommerce-project-frontend-one.vercel.app/product/details/${id}`
       )
       .then((res) => {
         setProduct(res.data);
         console.log(res.data);
       })
       .catch((error) => console.log(error));
-  }, [productId]);
+  }, []);
   return (
     <>
       <div className="product-card">
