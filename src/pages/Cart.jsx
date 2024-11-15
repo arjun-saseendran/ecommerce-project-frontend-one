@@ -35,7 +35,9 @@ function Cart() {
         config
       )
       .then(() => {
-        getCartData();
+        let tempCartItem = [...cartItems]
+        tempCartItem[index].quantity = quantity
+        setCartItems(tempCartItem)
       })
       .catch((error) => console.log(error.response));
   };

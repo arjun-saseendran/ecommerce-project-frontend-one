@@ -5,6 +5,8 @@ import { Link, useParams } from "react-router-dom";
 function ProductDetails() {
   const [product, setProduct] = useState({});
   const { id } = useParams();
+  
+  
   useEffect(() => {
     axios
       .get(
