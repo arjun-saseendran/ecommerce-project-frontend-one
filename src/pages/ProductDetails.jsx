@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { apiCall } from "../controllers/api.controllers";
 
 function ProductDetails() {
   const apiUrl = import.meta.env.VITE_API_URL;
@@ -8,13 +8,18 @@ function ProductDetails() {
   const { id } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`${apiUrl}/product/details/${id}`)
-      .then((res) => {
-        setProduct(res.data);
-        console.log(res.data.product);
-      })
-      .catch((error) => console.log(error));
+    (async () => {
+      const [response, error] = await apiCall(
+        `${apiUrl}/product/details/${id}`,
+        "GET"
+      );
+
+      if (response) {
+        setProduct(response);
+      } else {
+        console.log(error);
+      }
+    })();
   }, [id]);
   return (
     <>
