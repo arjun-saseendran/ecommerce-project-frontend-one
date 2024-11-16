@@ -1,31 +1,32 @@
 import React from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { apiCall } from "../controllers/api.controllers";
 
 function ProductCard({ product }) {
   const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
-  const addToCart = () => {
-    alert("Product added");
+  const addToCart = async () => {
     const token = localStorage.getItem("token");
-    const config = { headers: { Authorization: token } };
-    axios
-      .post(
-        `${apiUrl}/cart`,
-        {
-          product: product._id,
-          quantity: 1,
-        },
-        config
-      )
-      .then((res) => alert("Product added to cart "))
-      .catch((error) => {
-        console.log(error);
+    if (!token) {
+      navigate("/login");
+    }
+    const headers = { Authorization: token };
+    const [response, error] = await apiCall(
+      `${apiUrl}/cart`,
+      "POST",
+      {
+        product: product._id,
+        quantity: 1,
+      },
+      headers
+    );
 
-        if (error.response.status === 401) {
-          navigate("/login");
-        }
-      });
+    if (response) {
+      console.log(response);
+    } else {
+      console.log(error);
+      navigate("/login");
+    }
   };
   return (
     <>
