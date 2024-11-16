@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-
 function Register() {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
@@ -10,10 +9,7 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(
-        `${apiUrl}/user/signup`,
-        user
-      )
+      .post(`${apiUrl}/user/signup`, user)
       .then((res) => {
         alert("Registered successfully");
         navigate("/Login");

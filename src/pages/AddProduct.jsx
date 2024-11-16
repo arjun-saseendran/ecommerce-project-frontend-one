@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-
 function AddProduct() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const [product, setProduct] = useState({});

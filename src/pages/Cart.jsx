@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-
 function Cart() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const [cartItems, setCartItems] = useState([]);
@@ -31,11 +30,7 @@ function Cart() {
     };
 
     axios
-      .post(
-        `${constants.apiUrl}/cart/update-quantity`,
-        data,
-        config
-      )
+      .post(`${constants.apiUrl}/cart/update-quantity`, data, config)
       .then(() => {
         let tempCartItem = [...cartItems];
         tempCartItem[index].quantity = quantity;

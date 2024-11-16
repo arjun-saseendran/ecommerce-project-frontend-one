@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-
 function ProductCard({ product }) {
   const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
@@ -15,7 +14,7 @@ function ProductCard({ product }) {
         `${apiUrl}/cart`,
         {
           product: product._id,
-          quantity: 1
+          quantity: 1,
         },
         config
       )
