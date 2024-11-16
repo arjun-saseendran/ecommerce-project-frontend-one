@@ -6,7 +6,7 @@ const apiCall = async (url, method, data = null, headers = {}) => {
 
     return [response.data, null];
   } catch (error) {
-    return [null, error];
+    return [null, error.response || error];
   }
 };
 
