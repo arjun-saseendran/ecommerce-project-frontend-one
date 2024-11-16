@@ -5,6 +5,7 @@ import { apiCall } from "../controllers/api.controllers";
 function Register() {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
