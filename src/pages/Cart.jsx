@@ -61,7 +61,7 @@ function Cart() {
       <h1>Cart</h1>
       <ul className="cart-list">
         {cartItems.map((cartItem, index) => (
-          <li className="cart-item">
+          <li className="cart-item" key={index}>
             <img src={cartItem.product.image} width="100px" />
             <p className="product-title">{cartItem.product.title}</p>
             <p className="cart-product-description">

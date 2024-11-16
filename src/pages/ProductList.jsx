@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import { apiCall } from "../controllers/api.controllers";
+import { useNavigate } from "react-router-dom";
 
 function ProductList() {
   const apiUrl = import.meta.env.VITE_API_URL;
-
+  const navigate = useNavigate()
   const [products, setProducts] = useState([]);
+  const token = localStorage.getItem("token");
+  if (!token) {
+    navigate("/login");
+  }
   useEffect(() => {
     (async () => {
       const [response, error] = await apiCall(`${apiUrl}/product`, "GET");

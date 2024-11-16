@@ -1,21 +1,27 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import {apiCall} from "../controllers/api.controllers";
 
 function Login() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const [user, setUser] = useState({});
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post(`${apiUrl}/user/login`, user)
-      .then((response) => {
-        localStorage.setItem("token", response.data.token);
-        navigate("/");
-      })
-      .catch((error) => console.log(error));
+
+    const [response, error] = await apiCall(
+      `${apiUrl}/user/login`,
+      "POST",
+      user
+    );
+
+    if (response) {
+      localStorage.setItem("token", response.token);
+      navigate("/");
+    } else {
+      console.log(error);
+    }
   };
 
   const handleInput = (e, field) => {
