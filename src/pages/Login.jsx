@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { constants } from "../constants";
 
 function Login() {
   const [user, setUser] = useState({});
@@ -9,7 +10,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://ecommerce-project-backend-one.vercel.app/user/login", user)
+      .post(`${constants.apiUrl}/user/login`, user)
       .then((response) => {
         localStorage.setItem("token", response.data.token);
         navigate("/");

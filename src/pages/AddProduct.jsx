@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { constants } from "../constants";
 
 function AddProduct() {
   const [product, setProduct] = useState({});
@@ -15,7 +16,7 @@ function AddProduct() {
     e.preventDefault();
 
     axios
-      .post("https://ecommerce-project-backend-one.vercel.app/product", {
+      .post(`${constants.apiUrl}/product`, {
         product,
       })
       .then((res) => console.log(res))

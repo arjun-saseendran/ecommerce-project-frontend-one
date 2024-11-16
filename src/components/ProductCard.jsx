@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { constants } from "../constants";
 
 function ProductCard({ product }) {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ function ProductCard({ product }) {
     const config = { headers: { Authorization: token } };
     axios
       .post(
-        "https://ecommerce-project-backend-one.vercel.app/cart",
+        `${constants.apiUrl}/cart`,
         {
           product: product._id,
           quantity: 1

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { constants } from "../constants";
 
 function Register() {
   const [user, setUser] = useState({});
@@ -10,7 +11,7 @@ function Register() {
     e.preventDefault();
     axios
       .post(
-        "https://ecommerce-project-backend-one.vercel.app/user/signup",
+        `${constants.apiUrl}/user/signup`,
         user
       )
       .then((res) => {

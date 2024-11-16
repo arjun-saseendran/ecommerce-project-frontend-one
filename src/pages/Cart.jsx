@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { constants } from "../constants";
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
@@ -8,7 +9,7 @@ function Cart() {
     const token = localStorage.getItem("token");
     const config = { headers: { Authorization: token } };
     axios
-      .get("https://ecommerce-project-backend-one.vercel.app/cart", config)
+      .get(`${constants.apiUrl}/cart`, config)
       .then((res) => {
         setCartItems(res.data.cartItems);
       })
@@ -30,7 +31,7 @@ function Cart() {
 
     axios
       .post(
-        "https://ecommerce-project-backend-one.vercel.app/cart/update-quantity",
+        `${constants.apiUrl}/cart/update-quantity`,
         data,
         config
       )

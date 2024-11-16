@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import axios from "axios";
+import { constants } from "../constants";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios
-      .get("https://ecommerce-project-backend-one.vercel.app/product")
+      .get(`${constants.apiUrl}/product`)
       .then((res) => setProducts(res.data))
       .catch((error) => console.log(error));
   }, []);

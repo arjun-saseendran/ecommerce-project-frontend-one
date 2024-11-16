@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { constants } from "../constants";
 
 function ProductDetails() {
   const [product, setProduct] = useState({});
@@ -9,7 +10,7 @@ function ProductDetails() {
   useEffect(() => {
     axios
       .get(
-        `https://ecommerce-project-frontend-one.vercel.app/product/details/${id}`
+        `${constants.apiUrl}/product/details/${id}`
       )
       .then((res) => {
         setProduct(res.data);
