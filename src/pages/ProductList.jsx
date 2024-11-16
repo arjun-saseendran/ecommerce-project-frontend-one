@@ -7,13 +7,17 @@ function ProductList() {
 
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    const [response, error] = apiCall(`${apiUrl}/product`, "GET");
+    (async() =>{
+      const [response, error] = await apiCall(`${apiUrl}/product`, "GET");
 
-    if (response) {
-      setProducts(response);
-    } else {
-      console.log(error);
-    }
+      if (response) {
+        setProducts(response);
+      } else {
+        console.log(error);
+      }
+
+    })()
+    
   }, []);
 
   return (
