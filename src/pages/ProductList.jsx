@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import axios from "axios";
-import { constants } from "../constants";
+
 
 function ProductList() {
+
+  const apiUrl = import.meta.env.VITE_API_URL
+    
+  
+  
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios
-      .get(`${constants.apiUrl}/product`)
+      .get(`${apiUrl}/product`)
       .then((res) => setProducts(res.data))
       .catch((error) => console.log(error));
   }, []);
