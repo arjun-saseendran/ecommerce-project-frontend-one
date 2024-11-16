@@ -1,52 +1,51 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { apiCall } from "../controllers/api.controllers";
 
 function Cart() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const [cartItems, setCartItems] = useState([]);
-  const getCartData = () => {
+  const getCartData = async () => {
     const token = localStorage.getItem("token");
-    const config = { headers: { Authorization: token } };
-    axios
-      .get(`${apiUrl}/cart`, config)
-      .then((res) => {
-        setCartItems(res.data.cartItems);
-      })
-      .catch((error) => console.log(error.response));
+
+    const headers = { Authorization: token };
+
+    const [response, error] = await apiCall(
+      `${apiUrl}/cart`,
+      "GET",
+      null,
+      headers
+    );
+
+    if (response) {
+      setCartItems(response.cartItems);
+    } else {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
     getCartData();
   }, []);
 
-  const updateCartQunatity = (id, quantity, index) => {
+  const updateCartQunatity = async (id, quantity, index) => {
     const token = localStorage.getItem("token");
-    const config = { headers: { Authorization: token } };
-
-    const data = {
-      quantity,
-      cartItemId: id,
-    };
-
-    axios
-      .post(`${constants.apiUrl}/cart/update-quantity`, data, config)
-      .then(() => {
-        let tempCartItem = [...cartItems];
-        tempCartItem[index].quantity = quantity;
-        setCartItems(tempCartItem);
-        getCartData();
-      })
-      .catch((error) => console.log(error.response));
-  };
-
-  // Function to calculate the total price
-  const calculateTotalPrice = () => {
-    return cartItems.reduce(
-      (accumulator, cartItem) =>
-        accumulator + cartItem.product.price * cartItem.quantity,
-      0
+    const headers = { Authorization: token };
+    const [response, error] = await apiCall(
+      `${apiUrl}/cart/update-quantity`,
+      "POST",
+      { quantity, cartItemId: id },
+      headers
     );
+
+    if (response) {
+      let tempCartItem = [...cartItems];
+      tempCartItem[index].quantity = quantity;
+      setCartItems(tempCartItem);
+      getCartData();
+    } else {
+      console.log(error);
+    }
   };
 
   const cartTotal = () => {
