@@ -7,10 +7,10 @@ function ProductList() {
 
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    const [data, error] = apiCall(`${apiUrl}/product`, "GET");
+    const [response, error] = apiCall(`${apiUrl}/product`, "GET");
 
-    if (data) {
-      setProducts(data);
+    if (response) {
+      setProducts(response);
     } else {
       console.log(error);
     }
