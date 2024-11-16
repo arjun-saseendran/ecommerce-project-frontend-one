@@ -1,16 +1,13 @@
 import axios from "axios";
 
-const apiCall = async (url, method) => {
-    const method = {
-        get: method
-    }
+const apiCall = async (url, method, data = null, headers = {}) => {
   try {
-    const data = await axios.method.get(url);
-    return [data, null];
+    const response = await axios({ url, method, data, headers });
+
+    return [response.data, null];
   } catch (error) {
     return [null, error];
   }
 };
 
-
-export {apiCall}
+export { apiCall };

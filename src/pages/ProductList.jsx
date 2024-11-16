@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
-import axios from "axios";
 import { apiCall } from "../controllers/api.controllers";
 
 function ProductList() {
@@ -8,10 +7,10 @@ function ProductList() {
 
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    const [data, error] = apiCall(`${apiUrl}/product`, get);
+    const [data, error] = apiCall(`${apiUrl}/product`, "GET");
 
     if (data) {
-      setProducts(res.data);
+      setProducts(data);
     } else {
       console.log(error);
     }
