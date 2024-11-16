@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { apiCall } from "../controllers/api.controllers";
 
 function AddProduct() {
   const apiUrl = import.meta.env.VITE_API_URL;
@@ -12,15 +12,18 @@ function AddProduct() {
     setProduct(tempProduct);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    axios
-      .post(`${apiUrl}/product`, {
-        product,
-      })
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
+    const [response, error] = await apiCall(`${apiUrl}/product`, "POST", 
+      product,
+    );
+
+    if (response) {
+      console.log(response);
+    } else {
+      console.log(error);
+    }
   };
 
   return (
