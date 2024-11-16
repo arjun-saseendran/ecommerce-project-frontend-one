@@ -1,22 +1,24 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { apiCall } from "../controllers/api.controllers";
 
 function Register() {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post(`${apiUrl}/user/signup`, user)
-      .then((res) => {
-        alert("Registered successfully");
-        navigate("/Login");
-      })
-      .catch((error) => {
-        alert("Something went wrong. Try again!");
-      });
+    const [resposne, error] = await apiCall(
+      `${apiUrl}/user/signup`,
+      "POST",
+      user
+    );
+    if (resposne) {
+      alert("Registered successfully");
+      navigate("/Login");
+    } else {
+      alert("Something went wrong. Try again!");
+    }
   };
 
   const handleInput = (e, field) => {
