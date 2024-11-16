@@ -1,16 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { constants } from "../constants";
+
 
 function ProductDetails() {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [product, setProduct] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
     axios
       .get(
-        `${constants.apiUrl}/product/details/${id}`
+        `${apiUrl}/product/details/${id}`
       )
       .then((res) => {
         setProduct(res.data);

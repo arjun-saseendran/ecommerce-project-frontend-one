@@ -2,13 +2,9 @@ import React, { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import axios from "axios";
 
-
 function ProductList() {
+  const apiUrl = import.meta.env.VITE_API_URL;
 
-  const apiUrl = import.meta.env.VITE_API_URL
-    
-  
-  
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios

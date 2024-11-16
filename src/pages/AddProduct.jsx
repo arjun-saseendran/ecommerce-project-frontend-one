@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { constants } from "../constants";
+
 
 function AddProduct() {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [product, setProduct] = useState({});
   const handleInput = (e, field) => {
     const tempProduct = { ...product };
@@ -16,7 +17,7 @@ function AddProduct() {
     e.preventDefault();
 
     axios
-      .post(`${constants.apiUrl}/product`, {
+      .post(`${apiUrl}/product`, {
         product,
       })
       .then((res) => console.log(res))

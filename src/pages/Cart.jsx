@@ -1,15 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { constants } from "../constants";
+
 
 function Cart() {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [cartItems, setCartItems] = useState([]);
   const getCartData = () => {
     const token = localStorage.getItem("token");
     const config = { headers: { Authorization: token } };
     axios
-      .get(`${constants.apiUrl}/cart`, config)
+      .get(`${apiUrl}/cart`, config)
       .then((res) => {
         setCartItems(res.data.cartItems);
       })

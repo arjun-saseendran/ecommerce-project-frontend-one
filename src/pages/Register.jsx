@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { constants } from "../constants";
+
 
 function Register() {
   const [user, setUser] = useState({});
@@ -11,7 +11,7 @@ function Register() {
     e.preventDefault();
     axios
       .post(
-        `${constants.apiUrl}/user/signup`,
+        `${apiUrl}/user/signup`,
         user
       )
       .then((res) => {

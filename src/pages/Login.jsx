@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { constants } from "../constants";
+
 
 function Login() {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [user, setUser] = useState({});
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`${constants.apiUrl}/user/login`, user)
+      .post(`${apiUrl}/user/login`, user)
       .then((response) => {
         localStorage.setItem("token", response.data.token);
         navigate("/");

@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { constants } from "../constants";
+
 
 function ProductCard({ product }) {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const addToCart = () => {
     alert("Product added");
@@ -11,7 +12,7 @@ function ProductCard({ product }) {
     const config = { headers: { Authorization: token } };
     axios
       .post(
-        `${constants.apiUrl}/cart`,
+        `${apiUrl}/cart`,
         {
           product: product._id,
           quantity: 1
