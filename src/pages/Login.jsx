@@ -50,7 +50,7 @@ function Login() {
       </form>
       <p>
         Create an account
-        <Link to="/signup">Register</Link>
+        <Link to="/signup">Signup</Link>
       </p>
     </>
   );
