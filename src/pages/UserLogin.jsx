@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {apiCall} from "../controllers/api.controllers";
 
-function Login() {
+function UserLogin() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const [user, setUser] = useState({});
   const navigate = useNavigate();
@@ -50,10 +50,10 @@ function Login() {
       </form>
       <p>
         Create an account
-        <Link to="/register">Register</Link>
+        <Link to="/signup">Register</Link>
       </p>
     </>
   );
 }
 
-export default Login;
+export default UserLogin;

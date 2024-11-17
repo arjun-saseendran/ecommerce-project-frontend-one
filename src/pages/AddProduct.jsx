@@ -15,8 +15,10 @@ function AddProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const [response, error] = await apiCall(`${apiUrl}/product`, "POST", 
-      product,
+    const [response, error] = await apiCall(
+      `${apiUrl}/admin/add-product`,
+      "POST",
+      product
     );
 
     if (response) {
@@ -66,9 +68,9 @@ function AddProduct() {
         <br />
         <input
           type="number"
-          name="quantity"
-          placeholder="Quantity"
-          onChange={(e) => handleInput(e, "quantity")}
+          name="stock"
+          placeholder="Stock"
+          onChange={(e) => handleInput(e, "stock")}
         />
         <br />
         <input type="submit" value="Submit" />

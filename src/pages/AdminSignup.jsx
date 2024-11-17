@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiCall } from "../controllers/api.controllers";
 
-function Register() {
+function UserSignup() {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_URL;
@@ -10,13 +10,13 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const [resposne, error] = await apiCall(
-      `${apiUrl}/user/signup`,
+      `${apiUrl}/admin/signup`,
       "POST",
       user
     );
     if (resposne) {
       alert("Registered successfully");
-      navigate("/Login");
+      navigate("/admin/login");
     } else {
       alert("Something went wrong. Try again!");
     }
@@ -74,10 +74,10 @@ function Register() {
       </form>
       <p>
         Already have an account
-        <Link to="/login">Login</Link>
+        <Link to="/admin/login">Login</Link>
       </p>
     </>
   );
 }
 
-export default Register;
+export default UserSignup;

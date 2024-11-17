@@ -1,4 +1,3 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import ProductList from "./pages/ProductList";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -7,10 +6,12 @@ import Root from "./routes/root";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
+import UserSignup from "./pages/UserSignup";
+import UserLogin from "./pages/UserLogin";
 import Orders from "./pages/Orders";
 import AddProduct from "./pages/AddProduct";
+import AdminSignup from './pages/AdminSignup'
+import AdminLogin from './pages/AdminLogin'
 
 const router = createBrowserRouter([
   {
@@ -34,20 +35,34 @@ const router = createBrowserRouter([
         element: <Checkout />,
       },
       {
-        path: "/register",
-        element: <Register />,
+        path: "/signup",
+        element: <UserSignup />,
       },
       {
         path: "/login",
-        element: <Login />,
+        element: <UserLogin />,
       },
       {
         path: "/orders",
         element: <Orders />,
       },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <Root />,
+    children: [
       {
-        path: "/add-product",
+        path: "/",
         element: <AddProduct />,
+      },
+      {
+        path: "/signup",
+        element: <AdminSignup />,
+      },
+      {
+        path: "/login",
+        element: <AdminLogin />,
       },
     ],
   },
