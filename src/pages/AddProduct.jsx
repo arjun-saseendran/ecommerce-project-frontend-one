@@ -6,15 +6,15 @@ function AddProduct() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const [product, setProduct] = useState({});
-  const token = localStorage.getItem("token");
-  if (!token) {
-    navigate("/admin/login");
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("token");
 
-    const headers = { Authorization: token };
+    const headers = {
+      "Content-Type": "multipart/form-data",
+      Authorization: token,
+    };
 
     const [response, error] = await apiCall(
       `${apiUrl}/admin/add-product`,
