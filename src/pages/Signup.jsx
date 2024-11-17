@@ -70,7 +70,7 @@ function Signup() {
           Agree the terms and conditions
           <input type="checkbox" />
         </div>
-        <input className="input2 btn2" type="submit" value="Register" />
+        <input className="input2 btn2" type="submit" value="Signup" />
       </form>
       <p>
         Already have an account
