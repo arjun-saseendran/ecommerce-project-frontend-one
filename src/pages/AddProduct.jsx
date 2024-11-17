@@ -12,44 +12,46 @@ function AddProduct() {
     const token = localStorage.getItem("token");
 
     const headers = {
-      "Content-Type": "multipart/form-data",
+      
       Authorization: token,
     };
 
+    const newProduct = new FormData();
+    newProduct.append("image", product.image);
+    newProduct.append("title", product.title);
+    newProduct.append("description", product.description);
+    newProduct.append("price", product.price);
+    newProduct.append("discount", product.discount);
+    newProduct.append("stock", product.stock);
+
     const [response, error] = await apiCall(
-      `${apiUrl}/`,
+      `${apiUrl}/product`,
       "POST",
-      product,
-      headers
+      newProduct,
+      {...headers}
     );
 
     if (response) {
-      console.log(response);
+      navigate('/')
     } else {
       console.log(error);
     }
   };
 
   const handleInput = (e, field) => {
-    const tempProduct = { ...product };
-    tempProduct[field] = e.target.value;
-    console.log(tempProduct);
-
-    setProduct(tempProduct);
+    setProduct({ ...product, [field]: e.target.value });
   };
 
   const handleImage = (e) => {
-
-    
-
-  }
+    setProduct({ ...product, image: e.target.files[0] });
+  };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <input
           type="file"
-          name="image"
+          name="file"
           placeholder="Image"
           onChange={handleImage}
         />
