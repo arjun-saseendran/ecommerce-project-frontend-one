@@ -1,44 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiCall } from "../controllers/api.controllers";
 
-function AdminSignup() {
-  const [admin, setAdmin] = useState({});
+function Signup() {
+  const [user, setUser] = useState({});
   const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const [resposne, error] = await apiCall(
-      `${apiUrl}/admin/signup`,
+      `${apiUrl}/user/signup`,
       "POST",
-      admin
+      user
     );
     if (resposne) {
-      console.log(resposne);
-
-      navigate("/admin/login");
+      alert("Registered successfully");
+      navigate("/Login");
     } else {
-      alert("Something went wrong. Try again! ", error);
+      alert("Something went wrong. Try again!");
     }
   };
 
   const handleInput = (e, field) => {
-    const newAdmin = { ...admin };
-    newAdmin[field] = e.target.value;
-    setAdmin(newAdmin);
+    const newUser = { ...user };
+    newUser[field] = e.target.value;
+    setUser(newUser);
   };
 
   return (
     <>
-      <h1>Admin Signup</h1>
+      <h1>Signup</h1>
       <form onSubmit={handleSubmit}>
         <input
           className="input2"
           type="text"
-          name="adminname"
-          placeholder="Adminname"
-          onChange={(e) => handleInput(e, "adminname")}
+          name="username"
+          placeholder="Username"
+          onChange={(e) => handleInput(e, "username")}
         />
         <input
           className="input2"
@@ -75,10 +74,10 @@ function AdminSignup() {
       </form>
       <p>
         Already have an account
-        <Link to="/admin/login">Login</Link>
+        <Link to="/login">Login</Link>
       </p>
     </>
   );
 }
 
-export default AdminSignup;
+export default Signup;

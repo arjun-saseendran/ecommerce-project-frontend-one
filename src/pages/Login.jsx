@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {apiCall} from "../controllers/api.controllers";
 
-function UserLogin() {
+function Login() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const [user, setUser] = useState({});
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ function UserLogin() {
 
   return (
     <>
-      <h1>User Login</h1>
+      <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <input
           className="input2"
@@ -56,4 +56,4 @@ function UserLogin() {
   );
 }
 
-export default UserLogin;
+export default Login;

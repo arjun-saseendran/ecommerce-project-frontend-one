@@ -6,12 +6,11 @@ import Root from "./routes/root";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
-import UserSignup from "./pages/UserSignup";
-import UserLogin from "./pages/UserLogin";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 import Orders from "./pages/Orders";
 import AddProduct from "./pages/AddProduct";
-import AdminSignup from './pages/AdminSignup'
-import AdminLogin from './pages/AdminLogin'
+
 
 const router = createBrowserRouter([
   {
@@ -36,16 +35,17 @@ const router = createBrowserRouter([
       },
       {
         path: "signup",
-        element: <UserSignup />,
+        element: <Signup />,
       },
       {
         path: "login",
-        element: <UserLogin />,
+        element: <Login />,
       },
       {
         path: "orders",
         element: <Orders />,
       },
+
     ],
   },
   {
@@ -56,14 +56,7 @@ const router = createBrowserRouter([
         path: "",
         element: <AddProduct />,
       },
-      {
-        path: "signup",
-        element: <AdminSignup />,
-      },
-      {
-        path: "login",
-        element: <AdminLogin />,
-      },
+      
     ],
   },
 ]);
