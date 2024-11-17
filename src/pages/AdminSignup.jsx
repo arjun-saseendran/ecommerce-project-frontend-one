@@ -23,9 +23,9 @@ function AdminSignup() {
   };
 
   const handleInput = (e, field) => {
-    const newUser = { ...user };
-    newUser[field] = e.target.value;
-    setUser(newUser);
+    const newAdmin = { ...admin };
+    newAdmin[field] = e.target.value;
+    setAdmin(newAdmin);
   };
 
   return (

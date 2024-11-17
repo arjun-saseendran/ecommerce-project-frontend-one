@@ -27,7 +27,7 @@ function AdminLogin() {
   const handleInput = (e, field) => {
     const loginAdmin = { ...admin };
     loginAdmin[field] = e.target.value;
-    setUser(loginAdmin);
+    setAdmin(loginAdmin);
   };
 
   return (
