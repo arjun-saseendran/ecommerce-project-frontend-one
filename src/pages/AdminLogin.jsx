@@ -10,7 +10,7 @@ function AdminLogin() {
   useEffect(()=>{
     const token = localStorage.getItem("token");
     if (token) {
-      navigate("/admin/add-product");
+      navigate("/admin");
     }
   },[])
 
