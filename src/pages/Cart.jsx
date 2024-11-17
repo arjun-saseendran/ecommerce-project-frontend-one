@@ -62,7 +62,7 @@ function Cart() {
       <ul className="cart-list">
         {cartItems.map((cartItem, index) => (
           <li className="cart-item" key={index}>
-            <img src={cartItem.product.image} width="100px" />
+            <img src={`${apiUrl}/${cartItem.product.image}`} width="100px" />
             <p className="product-title">{cartItem.product.title}</p>
             <p className="cart-product-description">
               {cartItem.product.description}
