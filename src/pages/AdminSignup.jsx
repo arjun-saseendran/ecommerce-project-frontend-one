@@ -6,13 +6,6 @@ function AdminSignup() {
   const [admin, setAdmin] = useState({});
   const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_URL;
-  useEffect(()=>{
-    const token = localStorage.getItem("token");
-    if (token) {
-      localStorage.setItem("");
-    }
-  },[])
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
