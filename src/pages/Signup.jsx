@@ -16,7 +16,7 @@ function Signup() {
     );
     if (resposne) {
       alert("Registered successfully");
-      navigate("/Login");
+      navigate("/login");
     } else {
       console.log(error);
       
