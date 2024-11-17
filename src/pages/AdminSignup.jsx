@@ -15,7 +15,8 @@ function AdminSignup() {
       admin
     );
     if (resposne) {
-      alert("Registered successfully");
+      console.log(resposne);
+
       navigate("/admin/login");
     } else {
       alert("Something went wrong. Try again! ", error);
