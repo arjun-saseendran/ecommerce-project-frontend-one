@@ -10,13 +10,6 @@ function AddProduct() {
   if (!token) {
     navigate("/admin/login");
   }
-  const handleInput = (e, field) => {
-    const tempProduct = { ...product };
-    tempProduct[field] = e.target.value;
-    console.log(tempProduct);
-
-    setProduct(tempProduct);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,11 +30,19 @@ function AddProduct() {
     }
   };
 
+  const handleInput = (e, field) => {
+    const tempProduct = { ...product };
+    tempProduct[field] = e.target.value;
+    console.log(tempProduct);
+
+    setProduct(tempProduct);
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
         <input
-          type="text"
+          type="file"
           name="image"
           placeholder="Image"
           onChange={(e) => handleInput(e, "image")}

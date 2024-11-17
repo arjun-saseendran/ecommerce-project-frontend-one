@@ -7,6 +7,11 @@ function AdminLogin() {
   const [admin, setAdmin] = useState({});
   const navigate = useNavigate();
 
+   const token = localStorage.getItem("token");
+   if (token) {
+     navigate("/admin/add-product");
+   }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
