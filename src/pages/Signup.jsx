@@ -12,14 +12,13 @@ function Signup() {
     const [resposne, error] = await apiCall(
       `${apiUrl}/user/signup`,
       "POST",
-      {...user, isAdmin: false}
+      user
     );
     if (resposne) {
       alert("Registered successfully");
       navigate("/login");
     } else {
       console.log(error);
-      
     }
   };
 
