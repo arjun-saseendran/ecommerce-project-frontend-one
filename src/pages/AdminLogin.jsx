@@ -4,7 +4,7 @@ import { apiCall } from "../controllers/api.controllers";
 
 function AdminLogin() {
   const apiUrl = import.meta.env.VITE_API_URL;
-  const [user, setUser] = useState({});
+  const [admin, setAdmin] = useState({});
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -13,7 +13,7 @@ function AdminLogin() {
     const [response, error] = await apiCall(
       `${apiUrl}/admin/login`,
       "POST",
-      user
+      admin
     );
 
     if (response) {
@@ -25,9 +25,9 @@ function AdminLogin() {
   };
 
   const handleInput = (e, field) => {
-    const loginUser = { ...user };
-    loginUser[field] = e.target.value;
-    setUser(loginUser);
+    const loginAdmin = { ...admin };
+    loginAdmin[field] = e.target.value;
+    setUser(loginAdmin);
   };
 
   return (

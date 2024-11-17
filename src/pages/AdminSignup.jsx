@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { apiCall } from "../controllers/api.controllers";
 
 function AdminSignup() {
-  const [user, setUser] = useState({});
+  const [admin, setAdmin] = useState({});
   const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -12,13 +12,13 @@ function AdminSignup() {
     const [resposne, error] = await apiCall(
       `${apiUrl}/admin/signup`,
       "POST",
-      user
+      admin
     );
     if (resposne) {
       alert("Registered successfully");
       navigate("/admin/login");
     } else {
-      alert("Something went wrong. Try again!");
+      alert("Something went wrong. Try again! ", error);
     }
   };
 
