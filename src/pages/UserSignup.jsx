@@ -30,7 +30,7 @@ function UserSignup() {
 
   return (
     <>
-      <h1>Register</h1>
+      <h1>User Signup</h1>
       <form onSubmit={handleSubmit}>
         <input
           className="input2"

@@ -30,7 +30,7 @@ function AdminSignup() {
 
   return (
     <>
-      <h1>Register</h1>
+      <h1>Admin Signup</h1>
       <form onSubmit={handleSubmit}>
         <input
           className="input2"

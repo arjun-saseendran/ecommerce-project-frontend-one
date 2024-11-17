@@ -32,7 +32,7 @@ function AdminLogin() {
 
   return (
     <>
-      <h1>Login</h1>
+      <h1>Admin Login</h1>
       <form onSubmit={handleSubmit}>
         <input
           className="input2"
