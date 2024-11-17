@@ -35,9 +35,9 @@ function AdminSignup() {
         <input
           className="input2"
           type="text"
-          name="username"
-          placeholder="Username"
-          onChange={(e) => handleInput(e, "username")}
+          name="adminname"
+          placeholder="Adminname"
+          onChange={(e) => handleInput(e, "adminname")}
         />
         <input
           className="input2"
