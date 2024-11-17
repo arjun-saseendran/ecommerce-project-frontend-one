@@ -18,7 +18,8 @@ function Signup() {
       alert("Registered successfully");
       navigate("/Login");
     } else {
-      alert("Something went wrong. Try again!");
+      console.log(error);
+      
     }
   };
 
