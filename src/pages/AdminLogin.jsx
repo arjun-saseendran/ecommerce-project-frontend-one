@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiCall } from "../controllers/api.controllers";
 
@@ -7,10 +7,14 @@ function AdminLogin() {
   const [admin, setAdmin] = useState({});
   const navigate = useNavigate();
 
-   const token = localStorage.getItem("token");
-   if (token) {
-     navigate("/admin/add-product");
-   }
+  useEffect(()=>{
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/admin/add-product");
+    }
+  },[])
+
+   
 
   const handleSubmit = async (e) => {
     e.preventDefault();
