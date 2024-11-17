@@ -12,7 +12,7 @@ function Signup() {
     const [resposne, error] = await apiCall(
       `${apiUrl}/user/signup`,
       "POST",
-      {user, isAdmin: false}
+      {...user, isAdmin: false}
     );
     if (resposne) {
       alert("Registered successfully");
