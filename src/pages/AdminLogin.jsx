@@ -18,7 +18,7 @@ function AdminLogin() {
 
     if (response) {
       localStorage.setItem("token", response.token);
-      navigate("/");
+      navigate("/admin");
     } else {
       console.log(error);
     }
