@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiCall } from "../controllers/api.controllers";
 
-function UserSignup() {
+function AdminSignup() {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_URL;
@@ -80,4 +80,4 @@ function UserSignup() {
   );
 }
 
-export default UserSignup;
+export default AdminSignup;

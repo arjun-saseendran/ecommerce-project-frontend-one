@@ -19,31 +19,31 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        path: "/",
+        path: "",
         element: <ProductList />,
       },
       {
-        path: "/product-details/:id",
+        path: "product-details/:id",
         element: <ProductDetails />,
       },
       {
-        path: "/cart",
+        path: "cart",
         element: <Cart />,
       },
       {
-        path: "/checkout",
+        path: "checkout",
         element: <Checkout />,
       },
       {
-        path: "/signup",
+        path: "signup",
         element: <UserSignup />,
       },
       {
-        path: "/login",
+        path: "login",
         element: <UserLogin />,
       },
       {
-        path: "/orders",
+        path: "orders",
         element: <Orders />,
       },
     ],
@@ -53,15 +53,15 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        path: "/",
+        path: "",
         element: <AddProduct />,
       },
       {
-        path: "/signup",
+        path: "signup",
         element: <AdminSignup />,
       },
       {
-        path: "/login",
+        path: "login",
         element: <AdminLogin />,
       },
     ],
