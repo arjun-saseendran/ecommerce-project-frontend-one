@@ -17,7 +17,7 @@ function AddProduct() {
     };
 
     const [response, error] = await apiCall(
-      `${apiUrl}/admin/add-product`,
+      `${apiUrl}/`,
       "POST",
       product,
       headers
@@ -38,6 +38,12 @@ function AddProduct() {
     setProduct(tempProduct);
   };
 
+  const handleImage = (e) => {
+
+    
+
+  }
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -45,7 +51,7 @@ function AddProduct() {
           type="file"
           name="image"
           placeholder="Image"
-          onChange={(e) => handleInput(e, "image")}
+          onChange={handleImage}
         />
         <br />
         <input
