@@ -8,7 +8,7 @@ function AdminSignup() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const token = localStorage.getItem("token");
   if (token) {
-    navigate("/admin/add-product");
+    localStorage.setItem("")
   }
 
   const handleSubmit = async (e) => {
