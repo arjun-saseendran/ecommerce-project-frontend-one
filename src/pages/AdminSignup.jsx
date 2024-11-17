@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiCall } from "../controllers/api.controllers";
 
@@ -6,10 +6,13 @@ function AdminSignup() {
   const [admin, setAdmin] = useState({});
   const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_URL;
-  const token = localStorage.getItem("token");
-  if (token) {
-    localStorage.setItem("")
-  }
+  useEffect(()=>{
+    const token = localStorage.getItem("token");
+    if (token) {
+      localStorage.setItem("");
+    }
+  },[])
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
