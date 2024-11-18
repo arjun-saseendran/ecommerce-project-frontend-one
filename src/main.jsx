@@ -48,17 +48,13 @@ const router = createBrowserRouter([
 
     ],
   },
-  {
-    path: "/admin",
-    element: <Root />,
-    children: [
+  
       {
-        path: "",
+        path: "add-product",
         element: <AddProduct />,
       },
       
-    ],
-  },
+    
 ]);
 
 createRoot(document.getElementById("root")).render(

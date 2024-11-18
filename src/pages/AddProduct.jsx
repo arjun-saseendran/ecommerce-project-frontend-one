@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { apiCall } from "../controllers/api.controllers";
 import { useNavigate } from "react-router-dom";
 
@@ -12,8 +12,8 @@ function AddProduct() {
     const token = localStorage.getItem("token");
 
     const headers = {
-      
       Authorization: token,
+      "Content-Type": "multipart/form-data",
     };
 
     const newProduct = new FormData();
@@ -28,11 +28,11 @@ function AddProduct() {
       `${apiUrl}/product`,
       "POST",
       newProduct,
-      {...headers}
+      { ...headers }
     );
 
     if (response) {
-      navigate('/')
+      navigate("/");
     } else {
       console.log(error);
     }
