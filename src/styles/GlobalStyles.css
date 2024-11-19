@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   text-decoration: none;
-  background-color:#B6BBC4 ;
+  background-color: #F5F7F8;
 }
 
 .container {
@@ -113,12 +113,12 @@ body {
   align-items: center;
   border: 1px solid black;
   list-style: none;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 20px;
+  margin: 10px;
 }
 
 .cart-item-quantity {
-  margin: 5px;
+  margin: 10px;
 }
 
 .mb-10 {
@@ -144,9 +144,13 @@ form {
 }
 
 .product-description {
-  min-height: 60px;
+  min-height: 90px;
+}
+.product-title {
+  min-height: 40px;
 }
 
-.cart-product-description {
-  max-width: 400px;
+.cart-product-description{
+max-width: 400px;
+
 }

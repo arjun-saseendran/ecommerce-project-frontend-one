@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiCall } from "../controllers/api.controllers";
+import Cookies from "universal-cookie";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const [cartItems, setCartItems] = useState([]);
-  const getCartData = async () => {
-    const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
-    const headers = { Authorization: token };
+  const getCartData = async () => {
+    const cookies = new Cookies();
+    const accessToken = cookies.get("accessToken");
+
+    const headers = { Authorization: accessToken, withCredentials: true };
 
     const [response, error] = await apiCall(
       `${apiUrl}/cart`,
@@ -22,7 +27,37 @@ function Cart() {
 
       setCartItems(response.cartItems);
     } else {
-      console.log(error);
+      const accessToken = cookies.get("refreshToken");
+
+      const headers = {
+        Authorization: accessToken,
+      };
+
+      const [response, error] = apiCall(
+        `${apiUrl}/get-access-token`,
+        "GET",
+        null,
+        headers
+      );
+
+      if (response) {
+        cookies.set({ accessToken: response.accessToken });
+        const headers = {
+          Authorization: response.accessToken,
+        };
+
+        const [response, error] = apiCall(
+          `${apiUrl}/cart`,
+          "GET",
+          null,
+          headers
+        );
+        if (response) {
+          setCartItems(response.cartItems);
+        }
+      } else {
+        navigate("/login");
+      }
     }
   };
 
@@ -76,6 +111,7 @@ function Cart() {
 
             <div>
               <button
+                className="quantity-btn"
                 onClick={() => {
                   updateCartQunatity(
                     cartItem._id,
@@ -88,6 +124,7 @@ function Cart() {
               </button>
               <span className="cart-item-quantity">{cartItem.quantity}</span>
               <button
+                className="quantity-btn"
                 onClick={() => {
                   updateCartQunatity(
                     cartItem._id,

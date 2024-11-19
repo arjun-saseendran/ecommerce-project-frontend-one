@@ -1,24 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {apiCall} from "../controllers/api.controllers";
+import { apiCall } from "../controllers/api.controllers";
+import Cookies from "universal-cookie";
 
 function Login() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const [user, setUser] = useState({});
+  const [login, setLogin] = useState(false);
+  const cookies = new Cookies();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    const headers = {
+      "Content-Type": "application/json",
+    };
     e.preventDefault();
 
     const [response, error] = await apiCall(
       `${apiUrl}/user/login`,
       "POST",
-      user
+      user,
+      headers
     );
 
     if (response) {
-      localStorage.setItem("token", response.token);
-      navigate("/");
+      cookies.set("accessToken", response.accessToken);
+      cookies.set("refreshToken", response.refreshToken);
+      setLogin(true);
     } else {
       console.log(error);
     }
@@ -28,7 +36,13 @@ function Login() {
     const loginUser = { ...user };
     loginUser[field] = e.target.value;
     setUser(loginUser);
+
+    console.log(user);
   };
+
+  useEffect(() => {
+    if (login) {navigate("/")}
+  }, [login]);
 
   return (
     <>

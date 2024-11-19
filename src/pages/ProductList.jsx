@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import { apiCall } from "../controllers/api.controllers";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 function ProductList() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate()
+  const cookies = new Cookies();
   const [products, setProducts] = useState([]);
-  const token = localStorage.getItem("token");
-  if (!token) {
+  const accessToken = cookies.get("accessToken")
+  if (!accessToken) {
     navigate("/login");
   }
   useEffect(() => {

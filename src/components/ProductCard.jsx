@@ -1,16 +1,18 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiCall } from "../controllers/api.controllers";
+import Cookies from "universal-cookie";
 
 function ProductCard({ product }) {
   const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
+  const cookies = new Cookies();
   const addToCart = async () => {
-    const token = localStorage.getItem("token");
-    if (!token) {
+    const accessToken = cookies.get("accessToken");
+    if (!accessToken) {
       navigate("/login");
     }
-    const headers = { Authorization: token };
+    const headers = { Authorization: accessToken };
     const [response, error] = await apiCall(
       `${apiUrl}/cart`,
       "POST",
