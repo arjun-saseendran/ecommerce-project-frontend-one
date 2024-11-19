@@ -8,9 +8,10 @@ function Cart() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
+  const cookies = new Cookies();
 
   const getCartData = async () => {
-    const cookies = new Cookies();
+    
     const accessToken = cookies.get("accessToken");
 
     const headers = { Authorization: accessToken, withCredentials: true };
@@ -66,8 +67,8 @@ function Cart() {
   }, []);
 
   const updateCartQunatity = async (id, quantity, index) => {
-    const token = localStorage.getItem("token");
-    const headers = { Authorization: token };
+    const accessToken = cookies.get("accessToken")
+    const headers = { Authorization: accessToken };
     const [response, error] = await apiCall(
       `${apiUrl}/cart/update-quantity`,
       "POST",
