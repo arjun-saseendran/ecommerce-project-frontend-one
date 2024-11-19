@@ -11,10 +11,11 @@ function Cart() {
   const cookies = new Cookies();
 
   const getCartData = async () => {
-    
     const accessToken = cookies.get("accessToken");
 
-    const headers = { Authorization: accessToken, withCredentials: true };
+    const headers = {
+      Authorization: accessToken,
+    };
 
     const [response, error] = await apiCall(
       `${apiUrl}/cart`,
@@ -67,7 +68,7 @@ function Cart() {
   }, []);
 
   const updateCartQunatity = async (id, quantity, index) => {
-    const accessToken = cookies.get("accessToken")
+    const accessToken = cookies.get("accessToken");
     const headers = { Authorization: accessToken };
     const [response, error] = await apiCall(
       `${apiUrl}/cart/update-quantity`,
